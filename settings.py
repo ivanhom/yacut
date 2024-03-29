@@ -6,4 +6,3 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = os.getenv('SECRET_KEY')
     JSON_SORT_KEYS = False
-
