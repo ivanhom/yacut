@@ -12,10 +12,10 @@ from yacut.constants_messages import (BASE_URL, BODY_ERR, SHORT_ID_LENGTH,
                                       URL_EXISTS_ERR)
 from yacut.error_handlers import InvalidAPIUsage
 from yacut.models import URLMap
-from yacut.utils import check_short_id_in_db, get_unique_short_id
+from yacut.utils import check_short_id_in_db, get_unique_short_id, save_in_db
 
 
-@app.route('/api/id/', methods=['POST'])
+@app.route('/api/id/', methods=('POST',))
 def get_short_url() -> tuple[Response, int]:
     """Создание новой короткой ссылки."""
     data = request.get_json()
@@ -31,15 +31,14 @@ def get_short_url() -> tuple[Response, int]:
         raise InvalidAPIUsage(SHORT_URL_FIELD_ERR)
     url_map = URLMap()
     url_map.from_dict(data)
-    db.session.add(url_map)
-    db.session.commit()
+    save_in_db(url_map)
     result_url = url_map.original
     result_short_url = urljoin(BASE_URL, url_map.short)
     return (jsonify({'short_link': result_short_url, 'url': result_url}),
             HTTPStatus.CREATED)
 
 
-@app.route('/api/id/<string:short_id>/', methods=['GET'])
+@app.route('/api/id/<string:short_id>/', methods=('GET',))
 def get_original_url(short_id: str) -> tuple[Response, int]:
     """Получение оригинальной ссылки по указанному короткому идентификатору."""
     origin_url = URLMap.query.filter_by(short=short_id).first()

@@ -1,5 +1,6 @@
 import random
 
+from yacut import db
 from yacut.constants_messages import CHARACTERS, SHORT_ID_LENGTH
 from yacut.models import URLMap
 
@@ -15,3 +16,9 @@ def get_unique_short_id(length: int) -> str:
 def check_short_id_in_db(short_id: str) -> bool:
     """Проверяет наличие заданного короткого идентификатора в БД."""
     return URLMap.query.filter_by(short=short_id).first() is not None
+
+
+def save_in_db(url_map: URLMap) -> None:
+    """Производит запись объекта в БД."""
+    db.session.add(url_map)
+    db.session.commit()
