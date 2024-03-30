@@ -3,7 +3,7 @@ from urllib.parse import urljoin
 from flask import flash, redirect, render_template, request
 from werkzeug.wrappers import Response
 
-from yacut import app, db
+from yacut import app
 from yacut.constants_messages import (SHORT_ID_LENGTH, URL_CREATED,
                                       URL_EXISTS_ERR)
 from yacut.forms import URLForm

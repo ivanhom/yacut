@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 from flask import jsonify, request
 from flask.wrappers import Response
 
-from yacut import app, db
+from yacut import app
 from yacut.constants_messages import (BASE_URL, BODY_ERR, SHORT_ID_LENGTH,
                                       SHORT_URL_PATTERN, SHORT_URL_FIELD_ERR,
                                       WRONG_ID_ERR, URL_FIELD_REQUIRED_ERR,
