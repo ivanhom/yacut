@@ -1,10 +1,9 @@
-<h2>YaCut
+<h2>YaCut<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" height="26"/></h2>
 
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" height="26"/></h2>
 <p></p>Проект YaCut — это сервис укорачивания ссылок. Его назначение — ассоциировать длинную пользовательскую ссылку с короткой, которую предлагает сам пользователь или предоставляет сервис.</p>
 
 
-Программа написана с использованием веб-фреймворка Flask.<br>
+Программа написана с использованием веб-фреймворка `Flask`.<br>
 Для локального запуска необходимо загрузить репозиторий, создать и активировать виртуальное окружение и установить необходимые библиотеки из файла ```reguirements.txt```:
 ```
 python3 -m venv venv && source venv/bin/activate && python -m pip install --upgrade pip && pip install -r requirements.txt
@@ -14,8 +13,7 @@ python3 -m venv venv && source venv/bin/activate && python -m pip install --upgr
 
 Далее, для создания таблиц в базе данных, неоходимо через терминал зайти в оболочку flask командой ```flask shell``` и поочередно ввести команды ```from yacut import db``` и ```db.create_all()```.<br>
 
-После запуска проекта командой ```flask run``` в терминале, веб версия будет доступна по адресу http://127.0.0.1:5000/
-
+После запуска проекта командой ```flask run``` в терминале, веб версия будет доступна по [адресу](http://127.0.0.1:5000/)
 
 В реализованном API используются следующие эндпоинты:
 
